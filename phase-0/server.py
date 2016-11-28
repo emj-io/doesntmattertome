@@ -8,11 +8,14 @@ Args:
 
 """
 from flask import Flask, request
+from pymemcache.client.base import Client
 import logging
 import argparse
 import urllib2
+import json
 
 # logging.basicConfig(level=logging.DEBUG)
+client = Client(('0.0.0.0', 11211))
 
 # parsing arguments
 PARSER = argparse.ArgumentParser(description='Client message processor')
@@ -46,6 +49,15 @@ def get_message_stats():
     msg_count = len(MESSAGES.keys())
     return "There are %d messages in the MESSAGES dictionary" % msg_count
 
+def get_message(msg_id):
+    parts = client.get(msg_id)
+    if parts is None:
+        return [None, None]
+    return json.loads(parts)
+
+def save_message(msg_id, parts):
+    client.set(msg_id, json.dumps(parts))
+
 def process_message(msg):
     """
     processes the messages by combining and appending the kind code
@@ -56,13 +68,15 @@ def process_message(msg):
 
     # Try to get the parts of the message from the MESSAGES dictionary.
     # If it's not there, create one that has None in both parts
-    parts = MESSAGES.get(msg_id, [None, None])
+    # parts = MESSAGES.get(msg_id, [None, None])
+    parts = get_message(msg_id)
 
     # store this part of the message in the correct part of the list
     parts[part_number] = data
 
     # store the parts in MESSAGES
-    MESSAGES[msg_id] = parts
+    # MESSAGES[msg_id] = parts
+    save_message(msg_id, parts)
 
     # if both parts are filled, the message is complete
     if None not in parts:

@@ -15,7 +15,7 @@ import urllib2
 import json
 
 # logging.basicConfig(level=logging.DEBUG)
-client = Client(('0.0.0.0', 11211))
+client = Client(('doesntmattertome.ekpz2c.cfg.euc1.cache.amazonaws.com', 11211))
 
 # parsing arguments
 PARSER = argparse.ArgumentParser(description='Client message processor')

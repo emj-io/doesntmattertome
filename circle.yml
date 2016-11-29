@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  post:
+    - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com/doesntmattertome/phase0:$CIRCLE_SHA1 ./phase0
+
+test:
+  post:
+    - echo
+      
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./phase-0/deploy.sh

@@ -71,6 +71,9 @@ def process_message(msg):
     # parts = MESSAGES.get(msg_id, [None, None])
     parts = get_message(msg_id)
 
+    if len(parts) == 2:
+        return 'OK'
+
     # store this part of the message in the correct part of the list
     parts[part_number] = data
 

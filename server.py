@@ -71,8 +71,9 @@ def process_message(msg):
     # parts = MESSAGES.get(msg_id, [None, None])
     parts = get_message(msg_id)
 
-    print "how many parts: "
-    print len(parts)
+    if None not in parts:
+        print "Duplicated request, ignoring"
+        return "OK"
 
     # store this part of the message in the correct part of the list
     parts[part_number] = data

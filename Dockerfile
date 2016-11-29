@@ -8,11 +8,11 @@ ENV API_KEY=
 
 WORKDIR $APP_HOME
 
-# App installation
-COPY . /srv/doesntmattertome
-
 RUN apt-get -y install wget
 RUN pip install boto3 flask pymemcache
+
+# App installation
+COPY . /srv/doesntmattertome
 
 # Metadata
 ARG service_name

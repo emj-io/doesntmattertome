@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   post:
-    - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com/doesntmattertome/phase0:$CIRCLE_SHA1 ./phase0
+    - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com/doesntmattertome/phase0:$CIRCLE_SHA1 ./phase-0
 
 test:
   post:

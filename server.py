@@ -20,7 +20,7 @@ sqs = boto3.resource('sqs')
 queue = sqs.get_queue_by_name(QueueName='arn:aws:sqs:eu-central-1:133552650589:doesntmattertome')
 
 # logging.basicConfig(level=logging.DEBUG)
-client = Client(('doesntmattertome.ekpz2c.cfg.euc1.cache.amazonaws.com', 11211))
+client = Client(('doesntmattertome.nfzrko.cfg.euc1.cache.amazonaws.com', 11211))
 
 # parsing arguments
 PARSER = argparse.ArgumentParser(description='Client message processor')

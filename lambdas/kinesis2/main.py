@@ -6,7 +6,7 @@ import json
 import base64
 
 API_BASE = 'https://dashboard.cash4code.net/score'
-client = Client(('doesntmattertome.ekpz2c.cfg.euc1.cache.amazonaws.com', 11211))
+client = Client(('doesntmattertome.nfzrko.cfg.euc1.cache.amazonaws.com', 11211))
 
 def lambda_handler(event, context):
     for record in event['Records']:

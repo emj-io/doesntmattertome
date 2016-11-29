@@ -19,7 +19,7 @@ fi
 GIT_SHA=`git rev-parse HEAD`
 GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
-docker build \
+docker build . \
   --build-arg git_sha=$GIT_SHA \
   --build-arg git_branch=$GIT_BRANCH \
   --build-arg service_name=$IMAGE_NAME \

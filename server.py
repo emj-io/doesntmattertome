@@ -15,9 +15,9 @@ import urllib2
 import json
 import boto3
 
-sqs = boto3.resource('sqs')
+#sqs = boto3.resource('sqs')
 
-queue = sqs.get_queue_by_name(QueueName='arn:aws:sqs:eu-central-1:072388637268:doesntmattertome')
+#queue = sqs.get_queue_by_name(QueueName='arn:aws:sqs:eu-central-1:072388637268:doesntmattertome')
 
 # logging.basicConfig(level=logging.DEBUG)
 client = Client(('doesntmattertome.nfzrko.cfg.euc1.cache.amazonaws.com', 11211))
@@ -26,7 +26,7 @@ client = Client(('doesntmattertome.nfzrko.cfg.euc1.cache.amazonaws.com', 11211))
 PARSER = argparse.ArgumentParser(description='Client message processor')
 PARSER.add_argument('API_token', help="the individual API token given to your team")
 PARSER.add_argument('API_base', help="the base URL for the game API")
-PARSER.add_argument('Message_Type', help="http or sqs for type of message")
+#PARSER.add_argument('Message_Type', help="http or sqs for type of message")
 
 ARGS = PARSER.parse_args()
 
@@ -34,7 +34,7 @@ ARGS = PARSER.parse_args()
 MESSAGES = {} # A dictionary that contains message parts
 API_BASE = ARGS.API_base
 # 'https://csm45mnow5.execute-api.us-west-2.amazonaws.com/dev'
-MESSAGE_TYPE = ARGS.Message_Type
+#MESSAGE_TYPE = ARGS.Message_Type
 
 APP = Flask(__name__)
 
@@ -120,14 +120,14 @@ def process_sqs():
 
 if __name__ == "__main__":
 
-    if MESSAGE_TYPE == "sqs":
-        # do sqs things
-        process_sqs()
-    else:
-        # By default, we disable threading for "debugging" purposes.
-        # This will cause the app to block requests, which means that you miss out on some points,
-        # and fail ALB healthchecks, but whatever I know I'm getting fired on Friday.
-        APP.run(host="0.0.0.0", port="80", threaded=True)
-
-        # Use this to enable threading:
-        # APP.run(host="0.0.0.0", port="80", threaded=True)
+#    if MESSAGE_TYPE == "sqs":
+#        # do sqs things
+#        process_sqs()
+#    else:
+    # By default, we disable threading for "debugging" purposes.
+    # This will cause the app to block requests, which means that you miss out on some points,
+    # and fail ALB healthchecks, but whatever I know I'm getting fired on Friday.
+    APP.run(host="0.0.0.0", port="80", threaded=True)
+    
+    # Use this to enable threading:
+    # APP.run(host="0.0.0.0", port="80", threaded=True)

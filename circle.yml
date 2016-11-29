@@ -14,4 +14,4 @@ deployment:
   master:
     branch: master
     commands:
-      - ./deploy.sh
+      - ./push_container.sh

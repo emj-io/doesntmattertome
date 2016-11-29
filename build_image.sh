@@ -23,6 +23,4 @@ docker build \
   --build-arg git_sha=$GIT_SHA \
   --build-arg git_branch=$GIT_BRANCH \
   --build-arg service_name=$IMAGE_NAME \
-  -t $FULL_IMAGE \
-  .
-
+  -t $FULL_IMAGE

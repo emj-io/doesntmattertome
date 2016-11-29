@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 
 configure_aws_cli(){
 	aws --version

@@ -12,7 +12,7 @@ WORKDIR $APP_HOME
 COPY . /srv/doesntmattertome
 
 RUN apt-get -y install wget
-RUN pip install boto3 flask
+RUN pip install boto3 flask pymemcache
 
 # Metadata
 ARG service_name

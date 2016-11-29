@@ -2,7 +2,7 @@
 # Run to create a docker image
 
 IMAGE_REPO=doesntmattertome
-IMAGE_NAME=phase0
+IMAGE_NAME=app
 IMAGE_TAG=latest
 
 if [ ! -z "$IMAGE_REPO" ]; then

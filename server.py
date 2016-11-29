@@ -17,7 +17,7 @@ import boto3
 
 sqs = boto3.resource('sqs')
 
-queue = sqs.get_queue_by_name(QueueName='arn:aws:sqs:eu-central-1:133552650589:doesntmattertome')
+queue = sqs.get_queue_by_name(QueueName='arn:aws:sqs:eu-central-1:072388637268:doesntmattertome')
 
 # logging.basicConfig(level=logging.DEBUG)
 client = Client(('doesntmattertome.nfzrko.cfg.euc1.cache.amazonaws.com', 11211))
